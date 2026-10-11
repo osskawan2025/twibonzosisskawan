@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twibbon Generator - Instagram Portrait (3:4)</title>
+    <title>Twibbon Generator - OSIS SKAWAN 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">
-                        Twibbon Generator
+                        Twibbon OSIS SKAWAN 2026
                     </h1>
                     <p class="text-xs text-slate-500 font-medium">Format Portret Instagram (1080 x 1440 px)</p>
                 </div>
@@ -191,7 +191,7 @@
     <!-- Footer -->
     <footer class="bg-white border-t border-slate-200 py-6 mt-12 text-center text-xs text-slate-400">
         <div class="max-w-6xl mx-auto px-4">
-            <p>© Twibbon Generator Instagram Portrait 3:4. Dibuat untuk berbagi momen spesial.</p>
+            <p>© Twibbon OSIS SKAWAN 2026 • SMKN 1 Wanayasa</p>
         </div>
     </footer>
 
@@ -200,42 +200,8 @@
         // =========================================================================
         // PENGATURAN LINK BINGKAI/FRAME TWIBBON UTAMA
         // =========================================================================
-        // Ganti URL di bawah ini dengan link/URL gambar frame PNG transparan Anda (resolusi rekomendasi: 1080x1440 px).
-        // Anda bisa mengunggah file PNG ke Imgur, PostImage, GitHub, atau Google Drive (direct link).
-        const FIXED_FRAME_URL = ""; // <<-- Isi URL PNG Anda di sini (jika kosong, akan memakai bingkai default SVG)
+        const FIXED_FRAME_URL = "1791686301035.png";
         
-        // Default Bingkai SVG (Digunakan jika FIXED_FRAME_URL kosong)
-        const DEFAULT_FRAME_SVG = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1440" viewBox="0 0 1080 1440">
-            <defs>
-                <mask id="hole">
-                    <rect width="1080" height="1440" fill="white" />
-                    <rect x="140" y="240" width="800" height="800" rx="400" fill="black" />
-                </mask>
-                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#4f46e5;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
-                </linearGradient>
-                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:#f43f5e;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#fb923c;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <rect width="1080" height="1440" fill="url(#grad1)" mask="url(#hole)" />
-            <rect x="132" y="232" width="816" height="816" rx="408" fill="none" stroke="url(#grad2)" stroke-width="12" />
-            <rect x="120" y="220" width="840" height="840" rx="420" fill="none" stroke="#ffffff" stroke-width="6" stroke-dasharray="15, 15" opacity="0.8" />
-            <path d="M 0 0 L 1080 0 L 1080 160 Q 540 210 0 160 Z" fill="#ffffff" opacity="0.15" />
-            <g transform="translate(540, 1260)">
-                <rect x="-440" y="-80" width="880" height="130" rx="32" fill="#ffffff" filter="drop-shadow(0px 10px 20px rgba(0,0,0,0.15))"/>
-                <text x="0" y="-20" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="38" fill="#1e293b" text-anchor="middle">BANGGA & SUKSES BERSAMA</text>
-                <text x="0" y="24" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="22" fill="#6366f1" text-anchor="middle">#TwibbonInstagram • Official Frame</text>
-            </g>
-            <circle cx="150" cy="180" r="14" fill="#fbbf24" />
-            <circle cx="930" cy="180" r="20" fill="#fbbf24" />
-            <circle cx="100" cy="1150" r="24" fill="#ffffff" opacity="0.5" />
-            <circle cx="980" cy="1120" r="16" fill="#ffffff" opacity="0.7" />
-        </svg>`;
-
         // Inisialisasi Elemen DOM
         const canvas = document.getElementById('twibbonCanvas');
         const ctx = canvas.getContext('2d');
@@ -261,7 +227,7 @@
         // State Gambar
         let userImage = null;
         let frameImage = new Image();
-        frameImage.crossOrigin = "anonymous"; // Memfasilitasi CORS untuk URL gambar eksternal
+        frameImage.crossOrigin = "anonymous";
 
         // Parameter Transformasi Foto Pengguna
         let photoState = {
@@ -280,11 +246,7 @@
 
         // Memuat Frame Terkunci
         function loadFixedFrame() {
-            if (FIXED_FRAME_URL && FIXED_FRAME_URL.trim() !== "") {
-                frameImage.src = FIXED_FRAME_URL;
-            } else {
-                frameImage.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(DEFAULT_FRAME_SVG);
-            }
+            frameImage.src = FIXED_FRAME_URL;
         }
 
         frameImage.onload = () => {
@@ -292,8 +254,7 @@
         };
 
         frameImage.onerror = () => {
-            console.warn("Gagal memuat URL frame khusus, kembali ke frame default.");
-            frameImage.src = 'data:image/svg+xml;utf8,' + encodeURIComponent(DEFAULT_FRAME_SVG);
+            console.warn("Gagal memuat gambar frame: " + FIXED_FRAME_URL);
         };
 
         loadFixedFrame();
@@ -448,7 +409,7 @@
             if (!userImage) return;
 
             const link = document.createElement('a');
-            link.download = 'twibbon-instagram.png';
+            link.download = 'twibbon-osis-skawan-2026.png';
             link.href = canvas.toDataURL('image/png', 1.0);
             link.click();
         });
